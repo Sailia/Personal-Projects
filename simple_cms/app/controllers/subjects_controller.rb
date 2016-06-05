@@ -14,9 +14,32 @@ class SubjectsController < ApplicationController
     @subject = Subject.new
   end
 
+  def create
+    # * Instantiate a new object using form parameters
+    @subject = Subject.new(subject_params)
+    # * Save the object
+    if @subject.save
+    # * If save succeeds, redirect to to the index action
+    redirect_to(:action => 'index')
+    # * If save fails, redisplay the form so the user can fix problems
+    else 
+      render('new')
+    end
+  end
+
   def edit
   end
 
   def delete
   end
+
+  private 
+
+  def subject_params
+    # same as using "params[:subject]", except that it:
+    # - raises an error if :subject isn't present
+    # - allows listed attributes to be mass-assigned  
+    params.require(:subject).permit(:name, :position, :visible)
+  end
+
 end
