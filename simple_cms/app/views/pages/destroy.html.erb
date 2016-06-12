@@ -1,2 +1,15 @@
-<h1>Pages#destroy</h1>
-<p>Find me in app/views/pages/destroy.html.erb</p>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="page destroy">
+	<h2>Destroy Page</h2>
+
+	<%= form_for(:page, :url => {:action => 'destroy', :id => @page.id}) do |f| %>
+
+	<p class="reference-name"><%= @page.name %></p>
+
+	<div class="form-buttons">
+		<%= submit_tag("Destroy Page") %>
+	</div>
+
+	<% end %>
+</div>
