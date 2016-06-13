@@ -13,8 +13,8 @@
 		<tr class="header">
 			<th>&nbsp;</th>
 			<th>Section</th>
+			<th>Content Type</th>
 			<th>Visible</th>
-			<th>Sections</th>
 			<th>Actions</th>
 		</tr>
 		<% @sections.each do |section| %>
@@ -22,7 +22,6 @@
 			<td><%= section.position %></td>
 			<td><%= section.name %></td>
 			<td class="center"><%= section.visible ? 'Yes' : 'No' %></td>
-			<td class="center"><%= section.sections.size %></td>
 			<td class="actions">
 				<%= link_to("Show", {:action => 'show', :id => section.id}, :class => 'action show') %>
 				<%= link_to("Edit", {:action => 'edit', :id => section.id}, :class => 'action edit') %>

@@ -1,6 +1,9 @@
 class SectionsController < ApplicationController
+
+  layout false
+
   def index
-    @sections = Sestion.sorted
+    @sections = Section.sorted
   end
 
   def show
@@ -48,6 +51,6 @@ class SectionsController < ApplicationController
   private
 
   def subject_params
-    params.require(:section).permit(:name, :position, :visible)
+    params.require(:section).permit(:page_id, :name, :position, :visible, :content_type, :content)
   end
 end
