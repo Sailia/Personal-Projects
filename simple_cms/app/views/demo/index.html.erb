@@ -5,3 +5,11 @@
 <%= link_to('Hello page 2', {:action => 'hello'}) %><br />
 
 <%= link_to('Hello page with parameters', {:action => 'hello', :page => 5, :id => 20}) %>
+
+<% name = "Syema" %>
+
+<br />
+<%= link_to('Roar', '#', :onclick => "jsRoar('#{name}'); return true;") %>
+<%= javascript_tag("jsRoar('#{name}');") %>
+
+
