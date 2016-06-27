@@ -12,6 +12,7 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new
+    @subject_count = Subject.count + 1
   end
 
   def create
@@ -20,16 +21,18 @@ class SubjectsController < ApplicationController
     # * Save the object
     if @subject.save
     # * If save succeeds, redirect to to the index action
-    flash[:notice] = "Subject created successfully"
-    redirect_to(:action => 'index')
+      flash[:notice] = "Subject created successfully"
+      redirect_to(:action => 'index')
     # * If save fails, redisplay the form so the user can fix problems
-    else 
+    else
+      @subject_count = Subject.count + 1
       render('new')
     end
   end
 
   def edit
     @subject = Subject.find(params[:id])
+    @subject_count = Subject.count
   end
 
   def update
@@ -38,10 +41,11 @@ class SubjectsController < ApplicationController
     # * Update the object
     if @subject.update_attributes(subject_params)
     # * If update succeeds, redirect to to the index action
-    flash[:notice] = "Subject updated successfully"
-    redirect_to(:action => 'show', :id => @subject.id)
+      flash[:notice] = "Subject updated successfully"
+      redirect_to(:action => 'show', :id => @subject.id)
     # * If update fails, redisplay the form so the user can fix problems
-    else 
+    else
+      @subject_count = Subject.count
       render('edit')
     end
   end
