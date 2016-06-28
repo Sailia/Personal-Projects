@@ -41,7 +41,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     if @page.update_attributes(page_params)
       flash[:notice] = "Page updated successfully"
-      redirect_to(:action => "Show", :id => @page.id)
+      redirect_to(:action => "show", :id => @page.id)
     else
       @subjects = Subject.order('position ASC')
       @page_count = Page.count
