@@ -2,6 +2,8 @@ class PagesController < ApplicationController
 
   layout "admin"
 
+  before_action :find_subject
+
   def index
     @pages = Page.sorted
   end
@@ -63,5 +65,10 @@ class PagesController < ApplicationController
 
   def page_params
     params.require(:page).permit(:subject_id, :name, :permalink, :position, :visible)
+  end
+
+  def find_subject
+    if params[:subject_id]
+      @subject = Subject.find(params[:subject_id])
   end
 end
