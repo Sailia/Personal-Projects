@@ -30,33 +30,27 @@
 
     //update the rectangle position
     var update = function() {
-
       var crossedRightLimit = x >= 270;
       var crossedLeftLimit = x <= 10;
-
-      //check if x surpases a certain value
-      if(crossedRightLimit) {
-
+      
+      //check if x surpasses a certain value
+      if(crossedRightLimit){
         //if so, push back and reverse movement
         x = 270;
         speed = -speed;
-      }
+      }  
 
-      //check if x is getting too close to the left border
       else if(crossedLeftLimit) {
-
-        //if so, push back and reverse movement
+        // if so, push back and reverse movement
         x = 10;
         speed = -speed;
       }
-
       x = x + speed;
 
-      //define color
+      //define colour
       blueZone = x > 0 && x < 100;
       greenZone = !blueZone && x < 200;
     };
-
     //show it on the screen
     var draw = function() {
       ctx.clearRect(0,0,500,300);
@@ -64,6 +58,7 @@
       if(blueZone) {
         ctx.fillStyle = "#3333FF";
       }
+
       else if(greenZone) {
         ctx.fillStyle = "#00CC66";
       }
@@ -71,8 +66,7 @@
         ctx.fillStyle = "rgb(200, 0, 100)";
       }
 
-      
-      ctx.fillRect(x, y, w, h);
+      ctx.fillRect(x,y,w,h);
     };
 
     //gets executed multiple times per second
