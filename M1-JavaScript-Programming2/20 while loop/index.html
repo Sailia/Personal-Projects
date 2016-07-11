@@ -9,55 +9,40 @@
   <h1>While Loop</h1>
   <canvas id="mycanvas" width="640" height="360" ></canvas>
   <script>
-
-    
-    console.log(1);
-    console.log(2);
-    console.log(3);
-    console.log(4);
-
-    var i = 1;
-
-    while(i <= 1000) {
-      console.log(i);
-      i = i + 1;
-    }
-
-
     //constants
-    var GAME_WIDTH = 640;
+    var GAME_WIDTH = 648;
     var GAME_HEIGHT = 360;
 
     //enemies
     var enemies = [
-      {
-        x: 100, //x coordinate
-        y: 100, //y coordinate
-        speedY: 1, //speed in Y
-        w: 40, //width
-        h: 40 //heght
-      },
-      {
-        x: 260,
-        y: 100,
-        speedY: 2,
-        w: 40,
-        h: 40
-      },
-      {
-        x: 380,
-        y: 100,
-        speedY: 3,
-        w: 40,
-        h: 40
-      },
-      {
-        x: 450,
-        y: 100,
-        speedY: 7,
-        w: 40,
-        h: 40
-      }
+    {
+      x: 100, //x coordinate
+      y: 100, //y coordinate
+      speedY: 1, //speed in y
+      w: 40, //width
+      h: 40 //height
+    },
+    {
+      x: 260,
+      y: 100,
+      speedY: 2,
+      w: 40,
+      h: 40
+    },
+    {
+      x: 380,
+      y: 100,
+      speedY: 3,
+      w: 40,
+      h: 40
+    },
+    {
+      x: 4500,
+      y: 100,
+      speedY: 7,
+      w: 40,
+      h: 40
+    }
     ];
 
     //grab the canvas and context
@@ -66,15 +51,13 @@
 
     //update the logic
     var update = function() {
-
       //update the position of each enemy
-      var j = 0;
-      var n = enemies.length;
+      var i = 0;
+      var number_of_enemies = enemies.length;
 
-      while(j < n) {
-        //enemies[j].y = enemies[j].y + enemies[j].speedY;
-        enemies[j].y += enemies[j].speedY;
-        j++;
+      while(i < number_of_enemies) {
+        enemies[i].y += enemies[i].speedY;
+        i++;
       }
     };
 
@@ -85,27 +68,24 @@
       ctx.fillStyle = "#3333FF";
 
       //draw each enemy
-      var j = 0;
-      var n = enemies.length;
+      var i = 0;
+      var number_of_enemies = enemies.length;
 
-      while(j < n) {
-        ctx.fillRect(enemies[j].x, enemies[j].y, enemies[j].w, enemies[j].h);
-        j++;
-      }
+      while(i < number_of_enemies) {
+        ctx.fillRect(enemies[i].x, enemies[i].y, enemies[i].w, enemies[i].h);
+        i++;
+      } 
     };
 
-    //gets executed multiple times per second
     var step = function() {
-
       update();
       draw();
 
       window.requestAnimationFrame(step);
     };
 
-    //initial kick
+    // initial kick
     step();
-
   </script>
 </body>
 </html>
