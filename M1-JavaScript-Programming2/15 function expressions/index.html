@@ -4,25 +4,27 @@
 		Function Expressions
 		<script>
 			var fly = function() {
-				console.log('you are flying');
+				console.log('you are flying')
 			};
 
 			fly();
-
 			var player = {
-				x: 10,
+				x: 10, 
 				y: 20,
 				energy: 100,
 				superpower: function() {
 					console.log('no superpower');
-				}
+				} 
 			};
 
-			player.x = 100;
+		player.x = 100;
 
-			player.superpower = fly;
-			player.superpower();
+		player.superpower = fly;
+		player.superpower();
 
+		// Function expression is a function that can be stored as variable.
+
+		// Functions can be assigned to variables and you can work with them in the same way as with other types of variables.
 		</script>
 	</body>
 </html>

@@ -21,6 +21,7 @@
     //speed at which it moves
     var speed = 2;
     var speedY = 0;
+    
     //grab the canvas and context
     var canvas = document.getElementById("mycanvas");
     var ctx = canvas.getContext("2d");
@@ -67,7 +68,8 @@
 
       if(x >= 100 && x <= 150) {
         speedY = 1;
-      } else {
+      } 
+      else {
         speedY = 0;
       }
 
