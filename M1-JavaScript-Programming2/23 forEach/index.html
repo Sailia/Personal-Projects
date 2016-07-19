@@ -61,7 +61,7 @@
 
       //update the position of all enemies
       enemies.forEach(function(element, index){
-        element.y += element.speedY;
+        element.y += element.speedY
       });
     };
 
@@ -71,8 +71,7 @@
       ctx.clearRect(0,0,GAME_WIDTH,GAME_HEIGHT);
       ctx.fillStyle = "#3333FF";
 
-      //draw all enemies
-      enemies.forEach(function(element, index){
+      enemies.forEach(function(element, index) {
         ctx.fillRect(element.x, element.y, element.w, element.h);
       });
     };
